@@ -18,10 +18,6 @@ st.set_page_config(
 )
 
 
-# ============================================================
-# Session state
-# ============================================================
-
 DEFAULT_STATE = {
     "index": None,
     "chunks": [],
@@ -37,10 +33,6 @@ for key, value in DEFAULT_STATE.items():
     if key not in st.session_state:
         st.session_state[key] = value
 
-
-# ============================================================
-# Helpers
-# ============================================================
 
 def reset_recording():
     st.session_state["pending_question"] = None

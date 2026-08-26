@@ -179,11 +179,6 @@ else:
         "No knowledge base loaded."
     )
 
-
-# ============================================================
-# Voice Question
-# ============================================================
-
 st.divider()
 
 st.header(
@@ -203,11 +198,6 @@ audio = st.audio_input(
         f"{st.session_state['recording_version']}"
     ),
 )
-
-
-# ============================================================
-# Process audio
-# ============================================================
 
 if audio is not None:
 
@@ -273,11 +263,6 @@ if audio is not None:
             "pending_question"
         ] = question
 
-
-# ============================================================
-# Transcription Review
-# ============================================================
-
 pending_question = st.session_state[
     "pending_question"
 ]
@@ -331,11 +316,6 @@ if pending_question is not None:
         rerecord_button = st.button(
             "🎤 Re-record"
         )
-
-
-    # ========================================================
-    # Discard
-    # ========================================================
 
     if discard_button:
 

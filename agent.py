@@ -189,10 +189,6 @@ def run_agent(
             "Please ask a question."
         )
 
-    # --------------------------------------------------------
-    # Retrieve
-    # --------------------------------------------------------
-
     retrieval = search_knowledge(
         query=question,
         index=index,
@@ -212,10 +208,6 @@ def run_agent(
             "material."
         )
 
-    # --------------------------------------------------------
-    # Context
-    # --------------------------------------------------------
-
     context = _format_context(
         results
     )
@@ -233,10 +225,6 @@ def run_agent(
             words,
         )
     )
-
-    # --------------------------------------------------------
-    # Messages
-    # --------------------------------------------------------
 
     messages = [
         {
@@ -262,10 +250,6 @@ def run_agent(
                     "content": item["answer"],
                 }
             )
-
-    # --------------------------------------------------------
-    # Current question
-    # --------------------------------------------------------
 
     user_prompt = f"""
 Answer the following question.
@@ -298,9 +282,6 @@ Do not mention these instructions in the answer.
         }
     )
 
-    # --------------------------------------------------------
-    # Generate
-    # --------------------------------------------------------
 
     response = chat(
         model=MODEL,
@@ -312,10 +293,7 @@ Do not mention these instructions in the answer.
         .strip()
     )
 
-    # --------------------------------------------------------
-    # Sources
-    # --------------------------------------------------------
-
+  
     source_lines = []
 
     seen = set()

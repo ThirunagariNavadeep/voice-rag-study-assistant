@@ -348,11 +348,7 @@ if pending_question is not None:
         clear_response_audio()
 
 
-        # ----------------------------------------------------
-        # RAG + LLM
-        # ----------------------------------------------------
-
-        with st.spinner(
+         with st.spinner(
             "Searching the study material..."
         ):
 
@@ -374,10 +370,6 @@ if pending_question is not None:
                 st.stop()
 
 
-        # ----------------------------------------------------
-        # Screen answer
-        # ----------------------------------------------------
-
         st.subheader(
             "🤖 Answer"
         )
@@ -386,10 +378,6 @@ if pending_question is not None:
             answer
         )
 
-
-        # ----------------------------------------------------
-        # Conversation
-        # ----------------------------------------------------
 
         st.session_state[
             "conversation"
@@ -405,11 +393,6 @@ if pending_question is not None:
         ] = st.session_state[
             "conversation"
         ][-MAX_HISTORY:]
-
-
-        # ----------------------------------------------------
-        # Generate TTS
-        # ----------------------------------------------------
 
         with st.spinner(
             "Generating voice answer..."
@@ -437,11 +420,7 @@ if pending_question is not None:
                 )
 
 
-        # ----------------------------------------------------
-        # Clear transcription
-        # ----------------------------------------------------
-
-        st.session_state[
+         st.session_state[
             "pending_question"
         ] = None
 
@@ -449,10 +428,6 @@ if pending_question is not None:
             "pending_audio_hash"
         ] = None
 
-
-# ============================================================
-# Persistent Voice Answer
-# ============================================================
 
 response_audio = st.session_state[
     "response_audio"
@@ -477,10 +452,6 @@ if response_audio:
             autoplay=True,
         )
 
-
-# ============================================================
-# Text Question
-# ============================================================
 
 st.divider()
 
@@ -520,13 +491,8 @@ if st.button(
         st.stop()
 
 
-    # Clear previous audio.
     clear_response_audio()
 
-
-    # --------------------------------------------------------
-    # RAG + LLM
-    # --------------------------------------------------------
 
     with st.spinner(
         "Searching the study material..."
@@ -550,10 +516,6 @@ if st.button(
             st.stop()
 
 
-    # --------------------------------------------------------
-    # Screen answer
-    # --------------------------------------------------------
-
     st.subheader(
         "🤖 Answer"
     )
@@ -562,10 +524,6 @@ if st.button(
         answer
     )
 
-
-    # --------------------------------------------------------
-    # Conversation
-    # --------------------------------------------------------
 
     st.session_state[
         "conversation"
@@ -582,10 +540,6 @@ if st.button(
         "conversation"
     ][-MAX_HISTORY:]
 
-
-    # --------------------------------------------------------
-    # TTS
-    # --------------------------------------------------------
 
     with st.spinner(
         "Generating voice answer..."
@@ -613,10 +567,6 @@ if st.button(
             )
 
 
-# ============================================================
-# Persistent audio after text question
-# ============================================================
-
 response_audio = st.session_state[
     "response_audio"
 ]
@@ -630,8 +580,6 @@ if response_audio:
 
     if response_path.exists():
 
-        # Avoid duplicating the player if it
-        # was already rendered above.
         if not (
             pending_question is not None
             and st.session_state.get(
@@ -648,11 +596,6 @@ if response_audio:
                 format="audio/wav",
                 autoplay=True,
             )
-
-
-# ============================================================
-# Conversation History
-# ============================================================
 
 if st.session_state[
     "conversation"

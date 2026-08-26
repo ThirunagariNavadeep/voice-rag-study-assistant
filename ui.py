@@ -57,11 +57,6 @@ def clear_knowledge_base():
 def clear_response_audio():
     st.session_state["response_audio"] = None
 
-
-# ============================================================
-# Header
-# ============================================================
-
 st.title(
     "🎙️ Voice RAG Study Assistant"
 )
@@ -71,11 +66,6 @@ st.caption(
     "by voice or text, and receive grounded "
     "answers on screen and through voice."
 )
-
-
-# ============================================================
-# Knowledge Base
-# ============================================================
 
 st.header(
     "📚 Upload Study Material"
@@ -157,11 +147,6 @@ if uploaded_files:
             st.error(
                 f"Knowledge base error: {error}"
             )
-
-
-# ============================================================
-# Knowledge Base display
-# ============================================================
 
 st.subheader(
     "Knowledge Base"

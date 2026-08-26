@@ -9,17 +9,7 @@ from rag import add_uploaded_pdf, build_index
 from speech import transcribe
 from tts import speak
 
-
-# ============================================================
-# Configuration
-# ============================================================
-
 MAX_HISTORY = 6
-
-
-# ============================================================
-# Page configuration
-# ============================================================
 
 st.set_page_config(
     page_title="Voice RAG Study Assistant",

@@ -324,11 +324,6 @@ if pending_question is not None:
 
         st.rerun()
 
-
-    # ========================================================
-    # Re-record
-    # ========================================================
-
     if rerecord_button:
 
         reset_recording()
@@ -336,12 +331,7 @@ if pending_question is not None:
 
         st.rerun()
 
-
-    # ========================================================
-    # Answer
-    # ========================================================
-
-    if answer_button:
+     if answer_button:
 
         if st.session_state["index"] is None:
 
@@ -355,7 +345,6 @@ if pending_question is not None:
 
         question = pending_question
 
-        # Clear old audio immediately.
         clear_response_audio()
 
 
